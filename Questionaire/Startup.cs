@@ -29,7 +29,6 @@ namespace Questionaire
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //  services.AddControllers();
 
             services.AddCors(options =>
             {
@@ -51,7 +50,7 @@ namespace Questionaire
 
             services.AddDbContextPool<DataContext>
                                        (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<IQuestionaireRepository, SqlQuestionaireRepository>(); //dependecy Injection
+            services.AddScoped<IQuestionaireRepository, SqlQuestionaireRepository>(); 
 
             services.AddSwaggerGen(c =>
             {

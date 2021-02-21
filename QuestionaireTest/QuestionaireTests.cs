@@ -104,7 +104,7 @@ namespace QuestionaireTest
             Assert.IsNotNull(reasons);
             Assert.IsTrue(reasons.Count() > 0);
            
-            _QuestionaireContext.Database.EnsureDeleted();
+           // _QuestionaireContext.Database.EnsureDeleted();
         }
 
         [Test]
@@ -118,7 +118,7 @@ namespace QuestionaireTest
 
             
            
-            _QuestionaireContext.Database.EnsureDeleted();
+         //   _QuestionaireContext.Database.EnsureDeleted();
         }
 
 
