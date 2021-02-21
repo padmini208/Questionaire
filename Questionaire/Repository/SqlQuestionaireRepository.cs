@@ -25,7 +25,7 @@ namespace Questionaire.Repository
                 return reasonsToBeHired;
             }
 
-            catch(DbUpdateException ex)
+            catch 
             {
                 //write to Log;
                 

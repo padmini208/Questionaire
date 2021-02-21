@@ -47,8 +47,7 @@ namespace Questionaire
             services.AddControllers().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            //services.AddDbContext<DataContext>(option =>
-            // option.UseInMemoryDatabase("Questionaire"));
+            
 
             services.AddDbContextPool<DataContext>
                                        (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
