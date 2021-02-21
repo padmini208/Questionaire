@@ -99,20 +99,23 @@
         })
     }
     $("#submitReasons").on("click", function (e) {
+      
+        if ($(this).valid()) {
 
-        let reason = {
-            firstName: $($("#newReasonsForm")[0].FirstName).val(),
-            lastName: $($("#newReasonsForm")[0].LastName).val(),
-            email: $($("#newReasonsForm")[0].Email).val(),
-            firstReason: $($("#newReasonsForm")[0].FirstReason).val(),
-            secondReason: $($("#newReasonsForm")[0].SecondReason).val(),
-            thirdReason: $($("#newReasonsForm")[0].ThirdReason).val()
+            let reason = {
+                firstName: $($("#newReasonsForm")[0].FirstName).val(),
+                lastName: $($("#newReasonsForm")[0].LastName).val(),
+                email: $($("#newReasonsForm")[0].Email).val(),
+                firstReason: $($("#newReasonsForm")[0].FirstReason).val(),
+                secondReason: $($("#newReasonsForm")[0].SecondReason).val(),
+                thirdReason: $($("#newReasonsForm")[0].ThirdReason).val()
+            }
+            postReason(reason);
+            $("#newReasonsForm").trigger("reset");
+            $("#newReasonsForm").toggle();
+            $("#updateForm").hide();
+            e.preventDefault();
         }
-        postReason(reason);
-        $("#newReasonsForm").trigger("reset");
-        $("#newReasonsForm").toggle();
-        $("#updateForm").hide();
-        e.preventDefault();
 
     });
     function postReason(reason) {

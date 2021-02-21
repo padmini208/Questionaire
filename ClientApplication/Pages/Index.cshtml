@@ -8,9 +8,14 @@
 
 <head>
     <title> Three Reasons Why</title>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
 </head>
 <body>
     <div class="text-center">
@@ -22,50 +27,66 @@
     <div class="Message   text-danger"></div>
 
     <div class="container">
-      
+
         <button id="NewReasonButton" class="btn btn-primary btn-block">New Reason Entry</button><br /><br />
-        <form id="newReasonsForm">
+
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "newReasonsForm", novalidate = "false" }))
+        {
+            @Html.AntiForgeryToken()
             <div class="form-group row">
                 <label for="FirstName" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="FirstName" data-val-required="First Name is required" placeholder="First Name">
+
+                    @Html.ValidationSummary()
+                    @Html.TextBox("FirstName", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "First Name is required" })
+
 
                 </div>
             </div>
             <div class="form-group row">
                 <label for="LastName" class="col-sm-2 col-form-label">Last Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="LastName"  data-val-required="Last Name is required" placeholder="Last Name" >
-                  
+                    @Html.ValidationSummary()
+                    @Html.TextBox("LastName", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Last Name is required" })
+
                 </div>
             </div>
             <div class="form-group row">
+
                 <label for="Email" class="col-sm-2 col-form-label">Email </label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="Email" data-val-required="Email is required" placeholder="Email" required>
+                    @Html.ValidationSummary()
+                    @Html.TextBox("Email", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "E-mail is required" })
+
                 </div>
             </div>
             <div class="form-group row">
                 <label for="FirstReason" class="col-sm-2 col-form-label">First Reason</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="FirstReason" data-val-required="First Reason is required" placeholder="FirstReason" required>
+                    @Html.ValidationSummary()
+                    @Html.TextBox("FirstReason", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "First Reason is required" })
+
                 </div>
             </div>
             <div class="form-group row">
                 <label for="SecondReason" class="col-sm-2 col-form-label">Second Reason</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="SecondReason" data-val-required="Second Name is required" placeholder="SecondReason" required>
+                    @Html.ValidationSummary()
+                    @Html.TextBox("SecondReason", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Second Reason is required" })
+
                 </div>
             </div>
             <div class="form-group row">
                 <label for="ThirdReason" class="col-sm-2 col-form-label">Third Reason</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="ThirdReason" data-val-required="Third Name is required" placeholder="ThirdReason" required>
+                    @Html.ValidationSummary()
+                    @Html.TextBox("ThirdReason", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Third Reason is required" })
+
                 </div>
             </div>
             <button id="submitReasons" type="button" class="btn btn-primary">Add Reason</button>
-        </form>
 
+        }
         <div id="updateFormDiv">
             <form id="updateForm">
                 <div class="form-group row">
@@ -76,40 +97,53 @@
                 <div class="form-group row">
                     <label for="UpdateFirstName" class="col-sm-2 col-form-label">First Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" data-val-required="First Name is required" id="UpdateFirstName">
+                        @Html.ValidationSummary()
+                        @Html.TextBox("UpdateFirstName", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "First Name is required" })
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="UpdateLastName" class="col-sm-2 col-form-label">Last Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" data-val-required="Last Name is required" id="UpdateLastName">
+
+                        @Html.ValidationSummary()
+                        @Html.TextBox("UpdateLastName", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Last Name is required" })
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="UpdateEmail" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" data-val-required="E-Mail is required" id="UpdateEmail">
+
+                        @Html.ValidationSummary()
+                        @Html.TextBox("UpdateEmail", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Email is required" })
+
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="UpdateReasonOne" class="col-sm-2 col-form-label">First Reason</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="UpdateReasonOne" data-val-required="Reason One is required" placeholder="Reason One">
+
+                        @Html.ValidationSummary()
+                        @Html.TextBox("UpdateReasonOne", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "First Reason is required" })
+
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="UpdateReasonTwo" class="col-sm-2 col-form-label">Second Reason</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="UpdateReasonTwo" data-val-required="Second Reason is required" placeholder="Reason Two">
+                        @Html.ValidationSummary()
+                        @Html.TextBox("UpdateReasonTwo", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Second Reason is required" })
+
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="UpdateReasonThree" class="col-sm-2 col-form-label">Third Reason</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="UpdateReasonThree" data-val-required="Third Reason is required" placeholder="Reason Three">
+                        @Html.ValidationSummary()
+                        @Html.TextBox("UpdateReasonThree", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Third Reason is required" })
                     </div>
                 </div>
 
@@ -135,10 +169,8 @@
 </html>
 
 @section scripts {
-    Scripts.Render("~/bundles/jqueryval");
-    <script src="~/js/site.js"></script>
 
-    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/site.js"></script>
+   
 }
 
