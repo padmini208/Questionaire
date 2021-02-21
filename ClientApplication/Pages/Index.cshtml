@@ -1,0 +1,144 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "BHHC Reasons to be hired";
+
+}
+<html>
+
+<head>
+    <title> Three Reasons Why</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">BHHC - REASONS FOR GETTING HIRED</h1>
+    </div>
+
+    <div id="error_reasons" class="border-danger text-danger"></div>
+    <br />
+    <div class="Message   text-danger"></div>
+
+    <div class="container">
+      
+        <button id="NewReasonButton" class="btn btn-primary btn-block">New Reason Entry</button><br /><br />
+        <form id="newReasonsForm">
+            <div class="form-group row">
+                <label for="FirstName" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="FirstName" data-val-required="First Name is required" placeholder="First Name">
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="LastName" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="LastName"  data-val-required="Last Name is required" placeholder="Last Name" >
+                  
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Email" class="col-sm-2 col-form-label">Email </label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="Email" data-val-required="Email is required" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="FirstReason" class="col-sm-2 col-form-label">First Reason</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="FirstReason" data-val-required="First Reason is required" placeholder="FirstReason" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="SecondReason" class="col-sm-2 col-form-label">Second Reason</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="SecondReason" data-val-required="Second Name is required" placeholder="SecondReason" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="ThirdReason" class="col-sm-2 col-form-label">Third Reason</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="ThirdReason" data-val-required="Third Name is required" placeholder="ThirdReason" required>
+                </div>
+            </div>
+            <button id="submitReasons" type="button" class="btn btn-primary">Add Reason</button>
+        </form>
+
+        <div id="updateFormDiv">
+            <form id="updateForm">
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="hidden" class="form-control" id="ReasonId">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="UpdateFirstName" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-val-required="First Name is required" id="UpdateFirstName">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="UpdateLastName" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-val-required="Last Name is required" id="UpdateLastName">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="UpdateEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" data-val-required="E-Mail is required" id="UpdateEmail">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="UpdateReasonOne" class="col-sm-2 col-form-label">First Reason</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="UpdateReasonOne" data-val-required="Reason One is required" placeholder="Reason One">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="UpdateReasonTwo" class="col-sm-2 col-form-label">Second Reason</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="UpdateReasonTwo" data-val-required="Second Reason is required" placeholder="Reason Two">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="UpdateReasonThree" class="col-sm-2 col-form-label">Third Reason</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="UpdateReasonThree" data-val-required="Third Reason is required" placeholder="Reason Three">
+                    </div>
+                </div>
+
+                <button id="UpdateReasonButton" type="button" class="btn btn-primary">Update Reason</button>
+
+            </form>
+        </div>
+
+        <table id="ReasonsTable" class="table table-bordered table-hover">
+            <thead class=" align-content-center">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>First Reason</th>
+            <th>Second Reason</th>
+            <th>Third Reason</th>
+            <th>Email</th>
+            <th>Actions</th>
+            </thead>
+            <tbody id="ReasonsBody"></tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+@section scripts {
+    Scripts.Render("~/bundles/jqueryval");
+    <script src="~/js/site.js"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+

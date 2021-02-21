@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   
+        <title>BHHC- THREE REASONS WHY </title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="align-content-center"> BHHC - THREE REASONS TO BE HIRED </h1>
+        <button id="newReasonsBtn" class="btn btn-primary btn-block">Add Reasons Entry</button><br /><br />
+        <form id="NewReasonsEntryForm">
+
+            <div class="form-group row">
+                <label for="FirstName" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="FirstName" placeholder="First Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="LastName" class="col-sm-2 col-form-label"> Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="LastName" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="LastName" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Email" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="FirstReason" class="col-sm-2 col-form-label">First Reason</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="FirstReason" placeholder="First Reason">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="SecondReason" class="col-sm-2 col-form-label">Second Reason</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="SecondReason" placeholder="Second Reason">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="ThirdReason" class="col-sm-2 col-form-label">Third Reason</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="ThirdReason" placeholder="Third Reason">
+                </div>
+            </div>
+            <button id="SubmitReason" type="submit" class="btn btn-primary">Add My Reasons</button>
+        </form>
+
+        <table id="ReasonsTable" class="table table-bordered table-hover">
+            <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>First Reason</th>
+            <th>Second Reason</th>
+            <th>Thirtd Reason</th>
+            <th>Controls</th>
+            </thead>
+            <tbody id="AllReasonsBody"></tbody>
+        </table>
+    </div>
+
+</body>
+</html>     
