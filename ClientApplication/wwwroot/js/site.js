@@ -99,9 +99,8 @@
         })
     }
     $("#submitReasons").on("click", function (e) {
-      
-        if ($(this).valid()) {
 
+        
             let reason = {
                 firstName: $($("#newReasonsForm")[0].FirstName).val(),
                 lastName: $($("#newReasonsForm")[0].LastName).val(),
@@ -111,11 +110,11 @@
                 thirdReason: $($("#newReasonsForm")[0].ThirdReason).val()
             }
             postReason(reason);
-            $("#newReasonsForm").trigger("reset");
+          //  $("#newReasonsForm").trigger("reset");
             $("#newReasonsForm").toggle();
             $("#updateForm").hide();
             e.preventDefault();
-        }
+        
 
     });
     function postReason(reason) {
@@ -199,12 +198,12 @@
         }
 
         putReason($($("#updateForm")[0].ReasonId).val(), data);
-        $("#updateForm").trigger("reset");
+      //  $("#updateForm").trigger("reset");
         $("#updateForm").toggle();
         e.preventDefault();
 
     });
-     
-    
+
+ 
 
 });
