@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Questionaire", "Questionair
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientApplication", "ClientApplication\ClientApplication.csproj", "{52C4F499-8EB7-495A-96DB-1120E4A6DC4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestionaireTest", "QuestionaireTest\QuestionaireTest.csproj", "{4022679C-C6E0-47AF-B037-50A7E2B3F2DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuestionaireTest", "QuestionaireTest\QuestionaireTest.csproj", "{4022679C-C6E0-47AF-B037-50A7E2B3F2DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0CE786C3-97A9-49CD-B5E9-33D61745DCFE}"
+	ProjectSection(SolutionItems) = preProject
+		AboutQuestionaire.txt = AboutQuestionaire.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
