@@ -40,7 +40,7 @@ namespace ClientApplication
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-           // app.UseHsts();
+          
             app.UseRouting();
 
             app.UseAuthorization();
